@@ -1,50 +1,49 @@
 #include"libft.h"
 
-void	put_str(int n,char *str,int i)
+int	len(long nb)
 {
-	unsigned int nbr;
+	int		len;
 
-	nbr = (unsigned int)n;
-	if (nbr < 0)
+	len = 0;
+	if (nb < 0)
 	{
-		nbr = nbr * -1;
-		str[i++] = '-';
+		nb = nb * -1;
+		len++;
 	}
-	if (nbr > 9)
-	{
-		put_str(nbr / 10, str, i);
-		put_str(nbr % 10, str, i);
-	}
-	if (nbr <= 9)
-	{
-		str[i] = nbr + 48;
-	}
-}
-
-char	*ft_itoa(int n)
-{
-	int	n_of_char;
-	char	*str;
-	int	nb;
-	int	i;
-	
-	i = 0;
-	nb = n;
-	n_of_char = 0;
-	while(1 < nb)
+	while (nb > 0)
 	{
 		nb = nb / 10;
-		n_of_char++;
+		len++;
 	}
-	str = malloc((n_of_char + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	put_str(n, str, i);
-	return (str);
+	return (len);
 }
 
-int	main()
+char	*ft_itoa(int nb)
 {
-	char *str = ft_itoa(12354687);
-	printf("%s",str);
+	char *str;
+	long	n;
+	int		i;
+
+	n = nb;
+	i = len(n);
+	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	str[i--] = '\0';
+	if (n == 0)
+	{
+		str[0] = 48;
+		return (str);
+	}
+	if (n < 0)
+	{
+		str[0] = '-';
+		n = n * -1;
+	}
+	while (n > 0)
+	{
+		str[i] = 48 + (n % 10);
+		n = n / 10;
+		i--;
+	}
+	return (str);
 }

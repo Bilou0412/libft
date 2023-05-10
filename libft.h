@@ -33,6 +33,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t n);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup( const char *src );
+char	*ft_itoa(int nb);
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
