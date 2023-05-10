@@ -22,16 +22,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	if (!s1)
 		return (NULL);
-	while (ft_strchr(s1, set[start]))
+	while (ft_strchr(set, s1[start]))
 		start++;
-	while (ft_strrchr(s1, set[end]))
+	while (ft_strrchr(set, s1[end]))
 		end--;
 	return (ft_substr(s1, start, end - start + 1));
 }
 
 /*int	main()
 {
-	const char	 *s1 = "derffgoulderfsffr";
+	const char	 *s1 = "dedrffgoulderfsffr";
 	const char	*set = "derf";
 
 	printf("%s",ft_strtrim(s1,set));
