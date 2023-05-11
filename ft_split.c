@@ -6,23 +6,10 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:15 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/11 20:39:50 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/11 22:44:06 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
-
-static int	if_sep(char a, char c)
-{
-	if (a == c)
-		return (1);
-	else
-		return (0);
-}
-
-static int	adress_index(char const *s, char *ptr)
-{
-	return (ptr - s);
-}
 
 static int	count_array(char const *s1, char c)
 {
@@ -33,7 +20,7 @@ static int	count_array(char const *s1, char c)
 	i = 0;
 	while (s1[i])
 	{
-		if (if_sep(s1[i], c))
+		if (s1[i] == c && s1[i + 1] !=c)
 		{
 			count++;
 			i++;
@@ -46,37 +33,33 @@ static int	count_array(char const *s1, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char			**array;
-	unsigned int	start;
+	char	**array;
 	unsigned int	j;
-	unsigned int	size;
 
-	start = 0;
-	j = 0;
-	size = 0;
-	if (!s)
+	array = malloc(count_array(s, c) * sizeof(char **));
+	if (!array)
 		return (NULL);
-	array = ft_calloc((count_array(s, c)), sizeof(char **));
-	while (s[start + size])
+	while (j < count())
 	{
-		size = adress_index(s, ft_strchr(s + start, (int)c));
-		if (!size)
-			size = ft_strlen(s) - start;
-		array[j] = ft_calloc((size_t)size, sizeof(char *));
-		array[j] = ft_substr(s, start, (size_t)size);
-		start = size + start;
-		size = 0;
-		j++;
+		while(s[i] != c || s[i])
+			i++;
+		array[j] = malloc((i + 1) * sizeof(char *));
+		if(!array[j])
+			return(NULL);
+		i = 0
+		if (s[i] == c && s1[i + 1] != c)
+			
+
 	}
-	return (array);
+
 }
 
 int	main(void)
 {
 	char	**array;
-	char	*s = "je suis suis partit";
+	char	*s = "je      suis      suis     partit     ";
 	char	c = ' ';
 
 	array = ft_split(s, c);
-	printf("%s", array[0]);
+	printf("%s", array[3]);
 }
