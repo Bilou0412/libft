@@ -6,16 +6,16 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:53:56 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/09 19:40:36 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/11 12:01:18 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nbr;
+	long int	nbr;
 
-	nbr = (unsigned int)n;
+	nbr = (long int)n;
 	if (n < 0)
 	{
 		nbr = nbr * -1;
