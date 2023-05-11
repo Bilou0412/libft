@@ -6,7 +6,7 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:23:35 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/07 17:58:40 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:51:57 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_atoi(const char *str)
 	base = 0;
 	signe = 1;
 	i = 0;
+	if (!str)
+		return (0);
 	while ((str[i] < 14 && str[i] > 8) || str[i] == 32)
 	{
 		i++;

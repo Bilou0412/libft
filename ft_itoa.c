@@ -6,12 +6,12 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 10:34:24 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/11 12:07:13 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:56:24 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
 
-void	put_in_str(char *str_num, int nb)
+static void	put_in_str(char *str_num, int nb)
 {
 	static int			i;
 	long int			n;
@@ -33,7 +33,7 @@ void	put_in_str(char *str_num, int nb)
 		str_num[i++] = n + 48;
 }
 
-int	ft_len_n(int nb)
+static int	ft_len_n(int nb)
 {
 	int			len;
 	long int	n;

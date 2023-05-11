@@ -6,21 +6,33 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 22:59:10 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/09 17:04:40 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/11 17:46:47 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	unsigned char	*buff;
+	void	*buff;
+	size_t	i;
 
-	buff = 0;
+	i = 0;
+	if (size == 0)
+		return (NULL);
 	if (nitems > sizeof(char) * 2147483424 || size > sizeof(char) * 2147483424)
-		return (0);
-	buff = malloc(nitems * size);
+		return (NULL);
+	if (nitems == 0 || size == 0)
+	{
+		nitems = 1;
+		size = 1;
+	}
+	buff = (void *)malloc(nitems * size);
 	if (!buff)
-		return (0);
-	ft_memset(buff, 0, nitems);
-	return ((void *)buff);
+		return (NULL);
+	while (i < nitems * size)
+	{
+		((unsigned char *)buff)[i] = 0;
+		i++;
+	}
+	return (buff);
 }
