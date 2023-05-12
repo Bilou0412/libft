@@ -6,29 +6,10 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:15 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/12 16:44:12 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:09:11 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
-
-static int	count_array(char const *s1, char c);
-
-/*static char	**put_array(char const *s, char c, char **array)
-{
-	int	max_size;
-
-	max_size = count_array(s, c);
-	while (max_size--)
-	{
-		while (*s == c)
-			s++;
-		*array++ = ft_substr(s, 0, (ft_strchr(s, c) - s));
-		while (*s != c)
-			s++;
-	}
-	printf("%s", array[0]);
-	return (array);
-}*/
 
 static int	count_array(char const *s1, char c)
 {
@@ -69,20 +50,20 @@ char	**ft_split(char const *s, char c)
 		array[j] = ft_substr(s, 0, ft_strchr(s, c) - s);
 		if (!array[j++])
 			return (NULL);
-		while (*s != c)
+		while (*s != c && *s != '\0')
 			s++;
 	}
 	return (array);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	**array;
-	char	*s = "     a    dfdf fdf    dfjdf    dj  j j fl l        ";
+	char	*s = "Tripouille";
 	char	c = ' ';
 	int	i = 0;
 
 	array = ft_split(s, c);
 	while (array[i])
 		printf("%s\n", array[i++]);
-}
+}*/
