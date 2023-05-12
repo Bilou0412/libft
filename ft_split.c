@@ -6,7 +6,7 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:15 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/12 17:09:11 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:10:22 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -37,6 +37,8 @@ char	**ft_split(char const *s, char c)
 	int			max_size;
 	int			j;
 
+	if (!s)
+		return (NULL);
 	j = 0;
 	max_size = count_array(s, c);
 	array = malloc((max_size + 1) * sizeof(char **));
