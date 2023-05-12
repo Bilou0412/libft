@@ -6,7 +6,7 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:15 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/12 16:10:24 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:44:12 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -39,7 +39,7 @@ static int	count_array(char const *s1, char c)
 	i = 0;
 	while (s1[i])
 	{
-		if ((s1[i] == c && s1[i + 1] != c) || s1[i] == '\0')
+		if ((s1[i] != c && s1[i + 1] == '\0') || (s1[i] != c && s1[i + 1] == c))
 		{
 			count++;
 			i++;
@@ -58,14 +58,17 @@ char	**ft_split(char const *s, char c)
 
 	j = 0;
 	max_size = count_array(s, c);
-	array = malloc((max_size) * sizeof(char **));
+	array = malloc((max_size + 1) * sizeof(char **));
 	if (!array)
 		return (NULL);
+	array[max_size] = NULL;
 	while (max_size--)
 	{
 		while (*s == c)
 			s++;
-		array[j++] = ft_substr(s, 0, ft_strchr(s, c) - s);
+		array[j] = ft_substr(s, 0, ft_strchr(s, c) - s);
+		if (!array[j++])
+			return (NULL);
 		while (*s != c)
 			s++;
 	}
@@ -75,9 +78,11 @@ char	**ft_split(char const *s, char c)
 int	main(void)
 {
 	char	**array;
-	char	*s = "je      suis      suis     partit     ";
+	char	*s = "     a    dfdf fdf    dfjdf    dj  j j fl l        ";
 	char	c = ' ';
+	int	i = 0;
 
 	array = ft_split(s, c);
-	printf("%s", array[3]);
+	while (array[i])
+		printf("%s\n", array[i++]);
 }
