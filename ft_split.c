@@ -6,10 +6,29 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:15 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/11 22:44:06 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:10:24 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
+
+static int	count_array(char const *s1, char c);
+
+/*static char	**put_array(char const *s, char c, char **array)
+{
+	int	max_size;
+
+	max_size = count_array(s, c);
+	while (max_size--)
+	{
+		while (*s == c)
+			s++;
+		*array++ = ft_substr(s, 0, (ft_strchr(s, c) - s));
+		while (*s != c)
+			s++;
+	}
+	printf("%s", array[0]);
+	return (array);
+}*/
 
 static int	count_array(char const *s1, char c)
 {
@@ -20,7 +39,7 @@ static int	count_array(char const *s1, char c)
 	i = 0;
 	while (s1[i])
 	{
-		if (s1[i] == c && s1[i + 1] !=c)
+		if ((s1[i] == c && s1[i + 1] != c) || s1[i] == '\0')
 		{
 			count++;
 			i++;
@@ -33,25 +52,24 @@ static int	count_array(char const *s1, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**array;
-	unsigned int	j;
+	char		**array;
+	int			max_size;
+	int			j;
 
-	array = malloc(count_array(s, c) * sizeof(char **));
+	j = 0;
+	max_size = count_array(s, c);
+	array = malloc((max_size) * sizeof(char **));
 	if (!array)
 		return (NULL);
-	while (j < count())
+	while (max_size--)
 	{
-		while(s[i] != c || s[i])
-			i++;
-		array[j] = malloc((i + 1) * sizeof(char *));
-		if(!array[j])
-			return(NULL);
-		i = 0
-		if (s[i] == c && s1[i + 1] != c)
-			
-
+		while (*s == c)
+			s++;
+		array[j++] = ft_substr(s, 0, ft_strchr(s, c) - s);
+		while (*s != c)
+			s++;
 	}
-
+	return (array);
 }
 
 int	main(void)
