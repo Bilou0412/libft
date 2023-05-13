@@ -6,7 +6,7 @@
 #    By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 19:39:31 by bmoudach          #+#    #+#              #
-#    Updated: 2023/05/12 17:56:14 by bmoudach         ###   ########.fr        #
+#    Updated: 2023/05/13 14:28:11 by bmoudach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,14 +47,11 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
-
+clean:
+				$(RM) $(OBJS) $(BONUS_OBJS)
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
-clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
-
 fclean:			clean
 				$(RM) $(NAME)
 

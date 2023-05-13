@@ -6,7 +6,7 @@
 /*   By: bmoudach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 19:12:50 by bmoudach          #+#    #+#             */
-/*   Updated: 2023/05/12 19:12:54 by bmoudach         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:45:33 by bmoudach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (0);
 	while (*s != '\0')
 	{
 		if (*s == (char)c)
